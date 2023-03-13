@@ -1,5 +1,1 @@
-# Author:  ikechukwu ezekiel
-# Date: 14 - March -2023
-
-This project contains scripts to perform
-shell I/O redirection and filters
+This is a script to perform shell 0/I redirections
