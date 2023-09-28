@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# bash script to display number from 1 to 10
+
+for ((num=1; num<=100; num++))
+do
+	if [ "$((num % 3))" -eq 0 ] && [ "$((num % 5))" -eq 0 ]
+	then
+		echo "FizzBuzz"
+		continue
+	elif [ "$((num % 3))" -eq 0 ]
+	then
+		echo "Fizz"
+		continue
+
+	elif [ "$((num % 5))" -eq 0 ]
+	then
+		echo "Buzz"
+		continue
+	fi
+	echo "$num"
+done
