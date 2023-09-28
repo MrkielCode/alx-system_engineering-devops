@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script print Best School !0 times
+
+count=0
+until [ $count -ge 10 ]
+do
+	echo "Best School"
+	((count++))
+done
