@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#This script print Best school except 9 interation
+
+count=1
+
+while [ $count -lt 10 ]
+do
+	if [ $count -eq 9 ]
+	then
+		echo "Hi"
+	fi
+	echo "Best School"
+	((count++))
+done
+
