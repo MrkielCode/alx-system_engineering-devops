@@ -2,8 +2,8 @@
 # script to display To infinity and beyound
 
 trap "I am invincible!!!" SIGTERM
-
-while true;
+i=0
+while [ $i ];
 do
 	echo "To infinity and beyond"
 	sleep 2
