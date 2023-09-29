@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # script to display To infinity and beyound
 
-trap "I am invincible!!!" SIGTERM
-i=0
-while [ $i ];
+trap 'echo "I am invincible!!!"' SIGTERM
+
+while true;
 do
 	echo "To infinity and beyond"
 	sleep 2
