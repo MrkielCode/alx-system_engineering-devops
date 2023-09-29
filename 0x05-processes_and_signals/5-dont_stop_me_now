@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This scripts stop "infinity and beyound" script
+
+PID=$(pgrep -f "4-to_infinity_and_beyond")
+
+kill "$PID"
