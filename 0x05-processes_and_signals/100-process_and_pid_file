@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# script to terminate processes
+
+echo "$pid" > /var/run/myscript.pid 
+
+cleanup()
+{
+	rm -f /var/run/myscript.pid
+	exit 0;
+}
+
+handle_sigterm()
+{
+	echo "I hate the kill command"
+	rm -f /var/run/myscript.pid
+	exit 0;
+}
+trap handle_sigterm SIGTERM
+trap 'echo "Y U no love me?!"' SIGINT
+trap cleanup SIGQUIT
+
+while true;
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
