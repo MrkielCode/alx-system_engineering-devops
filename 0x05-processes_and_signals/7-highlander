@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # script to display To infinity and beyound
 
 trap "I am invincible!!!" SIGTERM
