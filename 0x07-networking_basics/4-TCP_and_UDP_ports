@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# this display the listening port and the PID
+# program nane
+
+netstat -l --program
