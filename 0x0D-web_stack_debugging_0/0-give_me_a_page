@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # debuggging and starting a web server
 
-sudo service apache2 start
+docker exec -ti 27c21b27b592 /bin/bash
+service apache2 start
 exit
