@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# debuggging and starting a web server
+
+sudo service apache2 start
+exit
