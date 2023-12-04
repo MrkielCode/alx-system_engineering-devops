@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #configuration of load balancer on the server
 
-sudo apt update
-sudo apt install haproxy
+sudo apt -y update
+sudo apt install -y haproxy
 
 CONFIG_FILE="/etc/haproxy/haproxy.cfg"
 
