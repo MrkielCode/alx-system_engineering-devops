@@ -1,3 +1,19 @@
 #!/usr/bin/env bash
 sudo apt update
 sudo apt install haproxy
+
+CONFIG_FILE="/etc/haproxy/haproxy.cfg"
+
+CONFIG_BLOCK=$(cat << 'EOF'
+listen load_balancer
+	bind *:80
+	mode http
+	balance roundrobin
+	option httpclose
+	option forwardfor
+	server 329369-web-01 3.94.185.80:80 check
+	server 329369-web-02 54.173.97.239:80 check
+EOF
+)
+
+echo "$CONFIG_BLOCK" | sudo tee -a "$CONFIG_FILE" > /dev/null
