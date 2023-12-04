@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # This configure the server containinng custom header
 
 apt-get -y update
