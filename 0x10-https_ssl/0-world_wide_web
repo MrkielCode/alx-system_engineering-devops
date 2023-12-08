@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-# This scripts takes in argumenents and prints the dns records
-get_subdomain_info(){
+# Quering the domain name to get the types of Records
+
+get_subdomain_info() {
 	domain="$1"
 	subdomain="$2"
-
 	if [ -z "$subdomain" ]; then
-		subdomain=("www" "lb-01" "web-01" "web-02")
+		subdomains=("www" "lb-01" "web-01" "web-02")
 	else
-		subdomain=("${subdomain[@]}")
+		subdomains=("$subdomain")
 	fi
-
-	for sub in "${subdomain[@]}"; do
+	
+	for sub in "${subdomains[@]}"; do
 		result=$(dig +short "$sub.$domain")
 		if [ -n "$result" ]; then
 			record_type=$(dig "$sub.$domain" | awk '/^'"$sub.$domain"'/ {print $4}')
