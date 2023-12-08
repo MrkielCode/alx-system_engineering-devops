@@ -11,7 +11,7 @@ get_subdomain_info() {
 	fi
 	
 	for sub in "${subdomains[@]}"; do
-		result=$(dig +short "$sub.$domain")
+		result=$(dig "$sub.$domain" | awk '/^'"$sub.$domain"'/ {print $5}')
 		if [ -n "$result" ]; then
 			record_type=$(dig "$sub.$domain" | awk '/^'"$sub.$domain"'/ {print $4}')
 			echo "The subdomain $sub is $record_type record and points to $result"
