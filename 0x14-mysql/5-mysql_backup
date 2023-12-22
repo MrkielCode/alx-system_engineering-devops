@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# script to backup file
+
+timestamp=$(date +"%d-%m-%Y")
+
+mysqldump -u root -p"$1" --all-databases > backup.sql
+
+tar -czvf "$timestamp.tar.gz" backup.sql
