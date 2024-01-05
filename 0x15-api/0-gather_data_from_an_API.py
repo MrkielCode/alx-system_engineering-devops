@@ -3,8 +3,8 @@
 script to get the users data and print out
 the completed task
 """
-from sys import argv
 import requests
+from sys import argv
 
 
 def get_user(id):
