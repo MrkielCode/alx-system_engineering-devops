@@ -30,8 +30,8 @@ def todo_done():
     completed_todo = [task for task in todo if task.get('completed')]
     completed = len(completed_todo)
 
-    print(f"Employee {username} is done with tasks "
-          f"({completed}/{total_task}):")
+    print("Employee {} is done with tasks({}/{}):".format(
+        username, completed, total_task))
     for todo in completed_todo:
         print('\t', todo['title'])
 
