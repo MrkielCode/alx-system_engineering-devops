@@ -3,8 +3,8 @@
 script to get the users data and print out
 the completed task
 """
-import requests
 import csv
+import requests
 from sys import argv
 
 
