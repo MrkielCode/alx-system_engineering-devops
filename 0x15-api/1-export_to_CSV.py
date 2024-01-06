@@ -32,7 +32,7 @@ def export_to_csv(user_id, username, todo):
 def todo_done():
     """get the task done """
     id = argv[1]
-    username = get_user(id).get('name')
+    username = get_user(id).get("username")
     user_id = get_user(id).get('id')
 
     api_url = f"https://jsonplaceholder.typicode.com/users/{user_id}/todos"
@@ -40,6 +40,7 @@ def todo_done():
     if response.status_code == 200:
         todo = response.json()
     export_to_csv(user_id, username, todo)
+    print(username)
 
 
 if __name__ == "__main__":
