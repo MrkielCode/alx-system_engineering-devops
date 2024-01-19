@@ -1,9 +1,12 @@
 #!/usr/bin/python3
+""" getting top 10 hot topic of a subreddits """
 import requests
 
+
 def top_ten(subreddit):
+    """ getting top 10 hot topic of a subreddits """
     url = f'https://www.reddit.com/r/{subreddit}/hot.json?limit=10'
-    headers = {'User-Agent': 'your_user_agent'}  # Set a user agent to avoid 429 error (rate limiting)
+    headers = {'User-Agent': 'your_user_agent'}
 
     response = requests.get(url, headers=headers)
 
