@@ -7,7 +7,9 @@ import requests
 
 def top_ten(subreddit):
     """ Getting the top host post from subreddits"""
-    headers = {'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
+    headers = {
+        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/bdov_)"
+    }
     params = {'limit': 10}
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
 
@@ -18,6 +20,7 @@ def top_ten(subreddit):
 
     if response.status_code != 200:
         print('None')
+        return
     else:
         data = response.json()
         posts = data['data']['children']
