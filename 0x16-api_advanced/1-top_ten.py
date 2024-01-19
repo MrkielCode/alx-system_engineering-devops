@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-get the first ten host post of a given subreddict
-"""
+"""Function to print hot posts on a given Reddit subreddit."""
 import requests
 
 
