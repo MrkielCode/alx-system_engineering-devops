@@ -1,32 +1,22 @@
 import requests
 
 def top_ten(subreddit):
-    # Set a custom User-Agent to avoid issues
-    headers = {"User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/bdov_)"}
+    url = f'https://www.reddit.com/r/{subreddit}/hot.json?limit=10'
+    headers = {'User-Agent': 'your_user_agent'}  # Set a user agent to avoid 429 error (rate limiting)
 
-    # Make a request to the Reddit API to get the hot posts
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json"
-    response = requests.get(url, headers=headers, allow_redirects=False)
+    response = requests.get(url, headers=headers)
 
-    # Check if the request was successful (status code 200)
-    if response.status_code == 200:
-        data = response.json()
+    if response.status_code != 200:
+        print(None)
+        return
 
-        # Check if the 'data' key and 'children' key are present in the response
-        if 'data' in data and 'children' in data['data']:
-            # Extract information about each post
-            for post in data['data']['children'][:10]:
-                post_data = post['data']
-                print(f'Title: {post_data["title"]}')
-        else:
-            print(f"Subreddit '{subreddit}' not found or has no hot posts.")
-    else:
-        print(f'Error: {response.status_code}')
+    data = response.json()
 
-if __name__ == '__main__':
-    import sys
+    if 'data' not in data or 'children' not in data['data']:
+        print(None)
+        return
 
-    if len(sys.argv) < 2:
-        print("Please pass an argument for the subreddit to search.")
-    else:
-        top_ten(sys.argv[1])
+    posts = data['data']['children']
+
+    for post in posts:
+        print(post['data']['title'])
